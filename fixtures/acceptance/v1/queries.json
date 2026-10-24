@@ -1,0 +1,497 @@
+[
+  {
+    "id": "positive-01",
+    "split": "calibration",
+    "kind": "answerable",
+    "query": "先查资料再生成答案的流程叫什么？",
+    "expected_status": "answered",
+    "expected_sources": [
+      {
+        "filename": "rag.md",
+        "line_start": 5,
+        "line_end": 6,
+        "section": "RAG"
+      }
+    ],
+    "expected_key_points": [
+      "RAG 先检索外部资料，再把检索证据提供给生成模型组织回答。"
+    ]
+  },
+  {
+    "id": "positive-02",
+    "split": "acceptance",
+    "kind": "answerable",
+    "query": "为什么要把长面经拆成小片段？",
+    "expected_status": "answered",
+    "expected_sources": [
+      {
+        "filename": "rag.md",
+        "line_start": 8,
+        "line_end": 9,
+        "section": "RAG"
+      }
+    ],
+    "expected_key_points": [
+      "切分把长文档变成可检索的片段，便于控制模型输入长度和定位来源。"
+    ]
+  },
+  {
+    "id": "positive-03",
+    "split": "calibration",
+    "kind": "answerable",
+    "query": "文本是如何转成可计算语义距离的数值表示的？",
+    "expected_status": "answered",
+    "expected_sources": [
+      {
+        "filename": "rag.md",
+        "line_start": 11,
+        "line_end": 12,
+        "section": "RAG"
+      }
+    ],
+    "expected_key_points": [
+      "Embedding 将文本映射为数值向量，用于比较语义相关程度。"
+    ]
+  },
+  {
+    "id": "positive-04",
+    "split": "acceptance",
+    "kind": "answerable",
+    "query": "能否把两个不同模型产生的向量混在一起查询？",
+    "expected_status": "answered",
+    "expected_sources": [
+      {
+        "filename": "rag.md",
+        "line_start": 14,
+        "line_end": 15,
+        "section": "RAG"
+      }
+    ],
+    "expected_key_points": [
+      "不同模型或版本的向量空间可能不兼容，不能直接用距离比较。"
+    ]
+  },
+  {
+    "id": "positive-05",
+    "split": "calibration",
+    "kind": "answerable",
+    "query": "召回八个候选是否等于有八道题？",
+    "expected_status": "answered",
+    "expected_sources": [
+      {
+        "filename": "rag.md",
+        "line_start": 17,
+        "line_end": 18,
+        "section": "RAG"
+      }
+    ],
+    "expected_key_points": [
+      "TopK 是本次检索召回的候选片段数量，不等于最终题目数量。"
+    ]
+  },
+  {
+    "id": "positive-06",
+    "split": "acceptance",
+    "kind": "answerable",
+    "query": "为什么最近邻返回结果后还要筛掉低相关片段？",
+    "expected_status": "answered",
+    "expected_sources": [
+      {
+        "filename": "rag.md",
+        "line_start": 20,
+        "line_end": 21,
+        "section": "RAG"
+      }
+    ],
+    "expected_key_points": [
+      "即使知识库没有答案，最近邻搜索也可能返回候选；过滤可减少无关证据。"
+    ]
+  },
+  {
+    "id": "positive-07",
+    "split": "calibration",
+    "kind": "answerable",
+    "query": "相似度为0.8是否说明回答有80%概率正确？",
+    "expected_status": "answered",
+    "expected_sources": [
+      {
+        "filename": "rag.md",
+        "line_start": 23,
+        "line_end": 24,
+        "section": "RAG"
+      }
+    ],
+    "expected_key_points": [
+      "不能。相似度度量向量接近程度，需要结合样本标定和证据检查。"
+    ]
+  },
+  {
+    "id": "positive-08",
+    "split": "acceptance",
+    "kind": "answerable",
+    "query": "相邻文本块留一些相同文字有什么作用？",
+    "expected_status": "answered",
+    "expected_sources": [
+      {
+        "filename": "rag.md",
+        "line_start": 26,
+        "line_end": 27,
+        "section": "RAG"
+      }
+    ],
+    "expected_key_points": [
+      "相邻片段保留少量共同文本，减少边界处上下文丢失，但会增加重复内容。"
+    ]
+  },
+  {
+    "id": "positive-09",
+    "split": "calibration",
+    "kind": "answerable",
+    "query": "回答下方的原文出处是为了什么？",
+    "expected_status": "answered",
+    "expected_sources": [
+      {
+        "filename": "rag.md",
+        "line_start": 29,
+        "line_end": 30,
+        "section": "RAG"
+      }
+    ],
+    "expected_key_points": [
+      "引用让用户核对回答依据，并定位到实际支持结论的原文片段。"
+    ]
+  },
+  {
+    "id": "positive-10",
+    "split": "acceptance",
+    "kind": "answerable",
+    "query": "证据无法支持结论时系统应该怎么回答？",
+    "expected_status": "answered",
+    "expected_sources": [
+      {
+        "filename": "rag.md",
+        "line_start": 32,
+        "line_end": 33,
+        "section": "RAG"
+      }
+    ],
+    "expected_key_points": [
+      "未召回足够证据或证据无法支撑关键结论时，应明确说明资料不足。"
+    ]
+  },
+  {
+    "id": "positive-11",
+    "split": "calibration",
+    "kind": "answerable",
+    "query": "面经只记录问题没写解答，应该怎么办？",
+    "expected_status": "answered",
+    "expected_sources": [
+      {
+        "filename": "rag.md",
+        "line_start": 35,
+        "line_end": 36,
+        "section": "RAG"
+      }
+    ],
+    "expected_key_points": [
+      "可以展示原题并注明原文未提供答案，不能用模型知识补写参考答案。"
+    ]
+  },
+  {
+    "id": "positive-12",
+    "split": "acceptance",
+    "kind": "answerable",
+    "query": "切分后如何保证还能定位回原文件？",
+    "expected_status": "answered",
+    "expected_sources": [
+      {
+        "filename": "rag.md",
+        "line_start": 50,
+        "line_end": 51,
+        "section": "RAG"
+      }
+    ],
+    "expected_key_points": [
+      "预处理后的文本可能改变布局，保留原文件行号才能准确回溯引用。"
+    ]
+  },
+  {
+    "id": "positive-13",
+    "split": "calibration",
+    "kind": "answerable",
+    "query": "超过模型长度限制能直接截掉尾巴吗？",
+    "expected_status": "answered",
+    "expected_sources": [
+      {
+        "filename": "rag.md",
+        "line_start": 56,
+        "line_end": 57,
+        "section": "RAG"
+      }
+    ],
+    "expected_key_points": [
+      "静默截断可能丢掉关键答案；应使用 tokenizer 校验并进一步切分。"
+    ]
+  },
+  {
+    "id": "positive-14",
+    "split": "acceptance",
+    "kind": "answerable",
+    "query": "换一个向量模型后旧向量还能继续直接用吗？",
+    "expected_status": "answered",
+    "expected_sources": [
+      {
+        "filename": "rag.md",
+        "line_start": 59,
+        "line_end": 60,
+        "section": "RAG"
+      }
+    ],
+    "expected_key_points": [
+      "更换模型导致向量空间变化时，需要重新生成文档向量并重建索引。"
+    ]
+  },
+  {
+    "id": "positive-15",
+    "split": "calibration",
+    "kind": "answerable",
+    "query": "重复执行不产生额外有效副作用的特性叫什么？",
+    "expected_status": "answered",
+    "expected_sources": [
+      {
+        "filename": "agent.md",
+        "line_start": 20,
+        "line_end": 21,
+        "section": "Agent"
+      }
+    ],
+    "expected_key_points": [
+      "同一操作重复执行不会产生额外有效副作用，例如相同哈希文件不重复入库。"
+    ]
+  },
+  {
+    "id": "positive-16",
+    "split": "acceptance",
+    "kind": "answerable",
+    "query": "资料中藏着让模型改变角色的命令，如何处理？",
+    "expected_status": "answered",
+    "expected_sources": [
+      {
+        "filename": "agent.md",
+        "line_start": 32,
+        "line_end": 33,
+        "section": "Agent"
+      }
+    ],
+    "expected_key_points": [
+      "把资料标记为不可信数据，限制工具能力，并在服务端校验结果和引用。"
+    ]
+  },
+  {
+    "id": "positive-17",
+    "split": "calibration",
+    "kind": "answerable",
+    "query": "MCP与模型发起工具调用之间是什么关系？",
+    "expected_status": "answered",
+    "expected_sources": [
+      {
+        "filename": "storage.md",
+        "line_start": 8,
+        "line_end": 9,
+        "section": "MCP 与存储"
+      }
+    ],
+    "expected_key_points": [
+      "MCP 关注连接和暴露工具及上下文，Tool Calling 关注模型如何提出结构化工具调用；两者可以配合。"
+    ]
+  },
+  {
+    "id": "positive-18",
+    "split": "acceptance",
+    "kind": "answerable",
+    "query": "同名新文件导入失败，旧知识还能查吗？",
+    "expected_status": "answered",
+    "expected_sources": [
+      {
+        "filename": "storage.md",
+        "line_start": 23,
+        "line_end": 24,
+        "section": "MCP 与存储"
+      }
+    ],
+    "expected_key_points": [
+      "先处理新版本，全部成功后事务切换；失败时保留旧版本供检索。"
+    ]
+  },
+  {
+    "id": "positive-19",
+    "split": "calibration",
+    "kind": "answerable",
+    "query": "删除资料时是否需要连向量和文本块一起处理？",
+    "expected_status": "answered",
+    "expected_sources": [
+      {
+        "filename": "storage.md",
+        "line_start": 32,
+        "line_end": 33,
+        "section": "MCP 与存储"
+      }
+    ],
+    "expected_key_points": [
+      "删除逻辑文档的各版本、文本块、向量及原文件副本，并阻止任务重新激活。"
+    ]
+  },
+  {
+    "id": "positive-20",
+    "split": "acceptance",
+    "kind": "answerable",
+    "query": "一次失败的问答怎么关联检索与生成日志？",
+    "expected_status": "answered",
+    "expected_sources": [
+      {
+        "filename": "storage.md",
+        "line_start": 41,
+        "line_end": 42,
+        "section": "MCP 与存储"
+      }
+    ],
+    "expected_key_points": [
+      "请求 ID 关联查询、检索和生成阶段日志，帮助定位一次请求的失败环节。"
+    ]
+  },
+  {
+    "id": "negative-01",
+    "split": "calibration",
+    "kind": "unanswerable",
+    "query": "量子纠错码如何解码？",
+    "expected_status": "insufficient",
+    "expected_sources": [],
+    "expected_key_points": []
+  },
+  {
+    "id": "negative-02",
+    "split": "acceptance",
+    "kind": "unanswerable",
+    "query": "黑洞信息悖论有哪些实验验证？",
+    "expected_status": "insufficient",
+    "expected_sources": [],
+    "expected_key_points": []
+  },
+  {
+    "id": "negative-03",
+    "split": "calibration",
+    "kind": "unanswerable",
+    "query": "如何证明黎曼猜想？",
+    "expected_status": "insufficient",
+    "expected_sources": [],
+    "expected_key_points": []
+  },
+  {
+    "id": "negative-04",
+    "split": "acceptance",
+    "kind": "unanswerable",
+    "query": "青铜器的铸造温度是多少？",
+    "expected_status": "insufficient",
+    "expected_sources": [],
+    "expected_key_points": []
+  },
+  {
+    "id": "negative-05",
+    "split": "calibration",
+    "kind": "unanswerable",
+    "query": "海水淡化膜的化学组成是什么？",
+    "expected_status": "insufficient",
+    "expected_sources": [],
+    "expected_key_points": []
+  },
+  {
+    "id": "negative-06",
+    "split": "acceptance",
+    "kind": "unanswerable",
+    "query": "如何诊断水稻病害？",
+    "expected_status": "insufficient",
+    "expected_sources": [],
+    "expected_key_points": []
+  },
+  {
+    "id": "negative-07",
+    "split": "calibration",
+    "kind": "unanswerable",
+    "query": "如何制作法式可颂？",
+    "expected_status": "insufficient",
+    "expected_sources": [],
+    "expected_key_points": []
+  },
+  {
+    "id": "negative-08",
+    "split": "acceptance",
+    "kind": "unanswerable",
+    "query": "火星探测器采用什么燃料？",
+    "expected_status": "insufficient",
+    "expected_sources": [],
+    "expected_key_points": []
+  },
+  {
+    "id": "negative-09",
+    "split": "calibration",
+    "kind": "unanswerable",
+    "query": "股票明天的收盘价是多少？",
+    "expected_status": "insufficient",
+    "expected_sources": [],
+    "expected_key_points": []
+  },
+  {
+    "id": "negative-10",
+    "split": "acceptance",
+    "kind": "unanswerable",
+    "query": "今年诺贝尔奖的获奖人是谁？",
+    "expected_status": "insufficient",
+    "expected_sources": [],
+    "expected_key_points": []
+  },
+  {
+    "id": "partial-01",
+    "split": "calibration",
+    "kind": "partial",
+    "query": "详细介绍RAG并给出某家公司未公开的召回指标。",
+    "expected_status": "insufficient",
+    "expected_sources": [],
+    "expected_key_points": []
+  },
+  {
+    "id": "partial-02",
+    "split": "acceptance",
+    "kind": "partial",
+    "query": "解释MCP并提供某企业生产环境的私密服务器配置。",
+    "expected_status": "insufficient",
+    "expected_sources": [],
+    "expected_key_points": []
+  },
+  {
+    "id": "partial-03",
+    "split": "calibration",
+    "kind": "partial",
+    "query": "请给出本机DeepSeek密钥的实际值和费用账单。",
+    "expected_status": "insufficient",
+    "expected_sources": [],
+    "expected_key_points": []
+  },
+  {
+    "id": "partial-04",
+    "split": "acceptance",
+    "kind": "partial",
+    "query": "解释长期记忆系统的完整实现细节。",
+    "expected_status": "insufficient",
+    "expected_sources": [],
+    "expected_key_points": []
+  },
+  {
+    "id": "partial-05",
+    "split": "calibration",
+    "kind": "partial",
+    "query": "证明某公司的私有模型安全性。",
+    "expected_status": "insufficient",
+    "expected_sources": [],
+    "expected_key_points": []
+  }
+]

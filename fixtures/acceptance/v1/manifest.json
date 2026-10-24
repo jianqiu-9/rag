@@ -1,0 +1,10 @@
+{
+  "version": "v1",
+  "documents": {
+    "rag.md": "cc85dd366b44a21a6f39ba0756a8e08504c92420c6cd0b4d3ed1a8f221f42c5a",
+    "agent.md": "5d3d328e7a8c3408c68582dfedb1e1c5b8d5afaf436b99adee98aae5d11c71d4",
+    "storage.md": "706be8d65a3bfda820bdbd65c78492b63753d72b03e8f0f97e296b29c2010060"
+  },
+  "query_sha256": "29f711df8e17a822871ed35444bd8f47e86428ef2922992ba2b9a2e34022bae2",
+  "note": "合成验收资料；预期要点人工编写，来源行号按原文件记录。正式验收前需人工复核并冻结。"
+}

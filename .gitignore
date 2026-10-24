@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.pyc
+.env
+.env.*
+!.env.example
+data/
+node_modules/
+dist/
+*.egg-info/
+.DS_Store
+.idea/
+playwright-report/
+test-results/
+*.tsbuildinfo
